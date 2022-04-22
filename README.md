@@ -44,4 +44,4 @@ ui.json\
 
 ## Lancement
 Dans un terminal dans le repertoire de l'outil, tapez:\
-`python3 main.py`
+`python main.py`
