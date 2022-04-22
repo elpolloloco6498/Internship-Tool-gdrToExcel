@@ -6,9 +6,13 @@ from openpyxl.styles import Font
 
 gdr_endpoint = "https://apigw.intra-dev01.bdf-dev01.local:443/gateway/SDL_GestionDesRemettants/1.0.0"
 
+with open('config.json', 'r', encoding='utf-8') as f:
+    conf = json.load(f)
+    apikey = conf["api-key"]
+
 headers = {
     "accept": "application/json",
-    "x-Gateway-APIKey": "0ab73db6-81c2-44ac-9a83-9ec979a2b97d"
+    "x-Gateway-APIKey": apikey
 }
 
 def idGdrFromCib(date, cib):
@@ -102,7 +106,7 @@ def autosizeCells(worksheet):
 
 def gdrToExcel():
     # import config
-    with open('config_test.json', 'r', encoding='utf-8') as f:
+    with open('config.json', 'r', encoding='utf-8') as f:
         conf = json.load(f)
         queries = conf["gdr"]
 
